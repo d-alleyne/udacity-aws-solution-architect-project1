@@ -1,0 +1,10 @@
+According to Amazon, a single AZ outage is detected automatically and 
+doesn't require human intervention. The process can take up to 2 minutes, 
+https://youtu.be/uiiS1h4PSI8, so I estimate that the minimum RTO and RPO
+for a single AZ failure is 2 minutes. A single region failure requires human 
+intervention, and thus requires:
+ - being alerted of the failure (5 minutes),
+ - promoting the read replica as the new active instance (5 minutes)
+ - creating a read replica replacement (10 minutes). 
+Thus, the minimum RTO for a single region outage is 20 minutes, 
+and the minimum RPO of the region outage is 5 minutes.
